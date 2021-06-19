@@ -1,0 +1,22 @@
+{
+  "name": "projecteulersolutions",
+  "version": "1.0.0",
+  "description": "Project Euler solutions in various programming languages. PRs and Issues have been disabled as I want myself only to work on solving these problems",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thunder-coding/ProjectEulerSolutions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thunder-coding/ProjectEulerSolutions/issues"
+  },
+  "homepage": "https://github.com/thunder-coding/ProjectEulerSolutions#readme",
+  "devDependencies": {
+    "jest": "^27.0.4"
+  }
+}
