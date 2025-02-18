@@ -1,25 +1,25 @@
+#include <array>
 #include <cmath>
 #include <cstdint>
 #include <iostream>
-#include <vector>
+
 int main() {
   // Since we are just finding odd primes, and only one even prime exist
   uint64_t sum = 2;
-  std::vector<uint64_t> primes;
-  // According to prime number theorem,
-  // pi(N) ~ N / log N
-  primes.reserve(2000000 / std::log(2000000));
-  for (int64_t num = 3; num <= 2000000; num += 2) {
-    bool isPrime = true;
-    for (int i = 0; i < primes.size(); i++) {
-      if (num % primes[i] == 0) {
-        isPrime = false;
-        break;
+  std::array<bool, 2000000> isNotPrime;
+  for (int i = 0; i < 2000000; i++) isNotPrime[i] = false;
+  isNotPrime[0] = true;
+  for (int i = 1; i < 2000000; i += 2) isNotPrime[i] = true;
+  for (int64_t num = 3; num <= std::sqrt(2000000); num += 2) {
+    if (!isNotPrime[num - 1]) {
+      for (int i = 2 * num; i < 2000000; i += num) {
+        isNotPrime[i - 1] = true;
       }
     }
-    if (isPrime) {
-      primes.emplace_back(num);
-      sum += num;
+  }
+  for (int i = 3; i < 2000000; i += 2) {
+    if (!isNotPrime[i - 1]) {
+      sum += i;
     }
   }
   std::cout << sum;
